@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	var answer = parseInt(Math.random() * 100);
+	var userAnswer = +prompt("Предположите, какое число от 0 до 100 загадал рандомизатор");
+	var maxTryCount = 5;
+	for (var tryCount = 1; tryCount < maxTryCount; tryCount++) {
+		if (userAnswer == answer) {
+			alert("Вы угадали! Загаданное число - " + userAnswer);
+			break;
+		} else if (userAnswer > answer) {
+			alert("Загаданное число меньше " + userAnswer);
+		} else if (userAnswer < answer) {
+			alert("Загаданное число больше " + userAnswer);
+		}
+		userAnswer = +prompt("Попробуйте еще раз предположить, какое число от 1 до 100 загадал рандомизатор. \n У вас осталось " + (maxTryCount - tryCount) + " попыток");
+	}
+	if (tryCount == maxTryCount) {
+		alert("Вы проиграли!");
+	}
+	alert("Правильный ответ - " + answer);
+</script>
