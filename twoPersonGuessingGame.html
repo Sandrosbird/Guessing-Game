@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	var answer = parseInt(Math.random() * 100);
+	var userOneName = prompt("Введите имя первого игрока: ");
+	var userTwoName = prompt("Введите имя второго игрока: ")
+	var userOneAnswer = +prompt(userOneName + "\nПредположите, какое число от 0 до 100 загадал рандомизатор");
+	var userTwoAnswer = +prompt(userTwoName + "\nПредположите, какое число от 0 до 100 загадал рандомизатор");
+	var maxTryCount = Infinity;
+	for (var tryCount = 1; tryCount < maxTryCount; tryCount++) {
+		if ((userOneAnswer == answer) && (userTwoAnswer == answer)) {
+			alert("Ничья! " + userOneName + " и " + userTwoName + " угадали! Загаданное число - " + userOneAnswer)
+		} else if (userOneAnswer == answer) {
+			alert(userOneName + " победил! Загаданное число - " + userOneAnswer);
+			break;
+		} else if (userTwoAnswer == answer) {
+			alert(userTwoName + " победил! Загаданное число - " + userTwoAnswer);
+		} else if ((userOneAnswer < answer)&&(userTwoAnswer < answer)) {
+			alert("Загаданное число больше чем " + userOneAnswer + " и " + userTwoAnswer);
+		} else if ((userOneAnswer > answer)&&(userTwoAnswer > answer)) {
+			alert("Загаданное число меньше чем " + userOneAnswer + " и " + userTwoAnswer);
+		} else if ((userOneAnswer < answer)&&(userTwoAnswer > answer)){
+			alert("Загаданное число между " + userOneAnswer + " и " + userTwoAnswer);
+		} else if ((userOneAnswer > answer)&&(userTwoAnswer < answer)){
+			alert("Загаданное число между " + userTwoAnswer + " и " + userOneAnswer);
+		}
+		var leaveGame = prompt("Закончить игру?");
+		if ((leaveGame == "Да") || (leaveGame == "Закончить") || (leaveGame == "да") || (leaveGame == "закончить")){
+			break;
+		}
+		userOneAnswer = +prompt(userOneName + "\nПопробуйте еще раз предположить, какое число от 0 до 100 загадал рандомизатор");
+		userTwoAnswer = +prompt(userTwoName + "\nПопробуйте еще раз предположить, какое число от 0 до 100 загадал рандомизатор");
+	}
+</script>
